@@ -1,25 +1,15 @@
+{% load static %}
+{% include 'myapp/header.html' %}
+<!Doctype html>
 <html>
     <head>
         <title>Login</title>
-        {% load static %}
         <link rel="stylesheet" href="{% static "css/login.css" %}" >
         <link rel="stylesheet" href="{% static "css/main.css" %}" >
     </head>
-    <ul>
-        <li><a href="{% url 'home' %}">Home</a></li>
-        <li><a href="{% url 'about' %}">About</a></li>
-        <li class="dropdown"><a href="javascript:void(0)"    class="dropbtn">Services</a>
-        <div class="dropdown-content">
-            <a href="#">Wedding</a>
-            <a href="#">Bithday</a>
-            <a href="#">Meetings</a>
-        </div>
-        <li><a href="{% url 'contact' %}">Contact us</a>
-        <li><a href="{% url 'login' %}">Log in</a>
-        </li>
 
-    </ul>
-
+    {% block header %}
+    {% endblock %}
 
     <header class="error">
 
@@ -66,10 +56,9 @@
         </script>
        
 
-     <footer>
-            <p>&copy; Copyrigth by evemanagement.com</p>
-        </footer>
+     {% block footer %}
 
+    {% endblock %}
     </body>
 </html>
 

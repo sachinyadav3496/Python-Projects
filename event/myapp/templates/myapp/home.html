@@ -1,28 +1,19 @@
 {% load static %}
+{% include 'myapp/header.html' %}
+
 <!Doctype html>
 <html lang="en-us">
     <head>
         <meta charset="utf-8" />
         <link rel="stylesheet" href="{% static 'css/home.css' %}">
+        <link rel="stylesheet" href="{% static 'css/main.css' %}">
     </head>
-    <ul>
-        <li><a href="{% url 'home' %}">Home</a></li>
-        <li><a href="{% url 'about' %}">About</a></li>
-        <li class="dropdown"><a href="javascript:void(0)"    class="dropbtn">Services</a>
-        <div class="dropdown-content">
-            <a href="#">Wedding</a>
-            <a href="#">Bithday</a>
-            <a href="#">Meetings</a>
-        </div>
-        <li><a href="{% url 'contact' %}">Contact us</a>
-        <li><a href="{% url 'login' %}">Log in</a>
-        </li>
-        
-    </ul>
+
+     {% block header %}
+    {% endblock %}
+
     <body>
-        <footer>
-            <p>&copy; Copyrigth by evemanagement.com</p>
-        </footer>
+
         <div class="slider">
             <figure>
                 <div class="slide">
@@ -51,5 +42,8 @@
             </p>
             </div>
         </section>
+
+   {% block footer %}
+    {% endblock %}
     </body>
 </html>
