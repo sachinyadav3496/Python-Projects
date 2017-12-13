@@ -1,0 +1,10 @@
+body{
+    background-image: url(bgimage.jpg);
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+#about
+{
+    color:greenyellow;
+}

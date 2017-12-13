@@ -1,0 +1,16 @@
+{% load static %}
+{% include 'myapp/footer.html' %}
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    {% block title %}{% endblock %}
+</head>
+<body>
+{% block content %}{% endblock %}
+{% block myblock %}
+<h1>something </h1>
+
+{% endblock %}
+</body>
+</html>

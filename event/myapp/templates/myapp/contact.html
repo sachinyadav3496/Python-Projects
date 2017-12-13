@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="{% static 'css/main.css' %}">
+        <link rel="stylesheet" href="{% static 'css/contact.css' %}">
+    </head>
+    <ul>
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'about' %}">About</a></li>
+        <li class="dropdown"><a href="javascript:void(0)"    class="dropbtn">Services</a>
+        <div class="dropdown-content">
+            <a href="#">Wedding</a>
+            <a href="#">Bithday</a>
+            <a href="#">Meetings</a>
+        </div>
+        <li><a href="{% url 'contact' %}">Contact us</a>
+        <li><a href="{% url 'login' %}">Log in</a>
+        </li>
+
+    </ul>
+<body>
+
+<section id="contact">
+    <h1>Contact us on </h1>
+    <table>
+        <tr>
+            <td><h3>Name:</h3></td>
+            <td><h3>EveManagement Solutions</h3></td>
+        </tr>
+        <tr>
+            <td><h3>Contact:</h3></td>
+            <td><h3>1234567890</h3></td>
+
+        </tr>
+        <tr>
+            <td><h3>email:</h3></td>
+            <td><h3>evemanagement@gmail.com</h3></td>
+        </tr>
+    </table>
+
+</section>
+
+<footer>
+            <p>&copy; Copyrigth by evemanagement.com</p>
+        </footer>
+</body>
+</html>

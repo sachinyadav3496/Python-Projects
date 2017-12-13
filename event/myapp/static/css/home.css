@@ -1,0 +1,162 @@
+header{
+    background-color: black;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a, .dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+    background-color: red;
+}
+
+li.dropdown {
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  /*padding: 1rem;*/
+  background-color: #333;
+  text-align: center;
+}
+.slider{
+    overflow: hidden;
+    height: 400px;
+    
+}
+.slider figure div{
+    float: left;
+    width: 20%;
+}
+.slider figure img{
+    width: 100%
+    float: left;
+}
+.slider figure{
+    position: relative;
+    width: 500%; 
+    margin: 0px;
+    left: 0;
+    animation: 20s anime infinite;
+}
+@keyframes anime{
+    0%{
+        left: 0%;
+    }
+    10%{
+        left: 0%;
+    }
+    12%{
+        left: -100%
+    }
+    22%{
+        left: -100%;
+    }
+    24%{
+        left: -200%;
+    }
+    34%{
+        left: -200%;
+    }
+    36%{
+        left: -300%
+    }
+    46%{
+        left: -300%
+    }
+    48%{
+        left: -400%
+    }
+    58%{
+        left: -400%
+    }
+    60%{
+        left: -300%
+    }
+    70%{
+        left: -300%;
+    }
+    72%{
+        left: -200%;
+    }
+    82%{
+        left: -200;
+    }
+    84%{
+        left: -100%;
+    }
+    94%{
+        left: -100%;
+    }
+    96%{
+        left: 0%;
+    }
+    
+    
+}
+body{
+    background-image: url(bgimage.jpg);
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+section{
+    align-content: center;
+}
+section h1{
+    text-align: center;
+    font-size: 40px;
+    font-style: italic;
+    font-family: Apple Chancery, cursive;
+    color: #ffcccc;
+}
+#op{
+    position:relative;
+    left: 0%;
+    margin: 0;
+    font-size: 25px;
+    text-align: center;
+    color: aqua;
+}
+

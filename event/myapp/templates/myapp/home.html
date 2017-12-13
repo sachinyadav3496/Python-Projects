@@ -1,0 +1,55 @@
+{% load static %}
+<!Doctype html>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    </head>
+    <ul>
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'about' %}">About</a></li>
+        <li class="dropdown"><a href="javascript:void(0)"    class="dropbtn">Services</a>
+        <div class="dropdown-content">
+            <a href="#">Wedding</a>
+            <a href="#">Bithday</a>
+            <a href="#">Meetings</a>
+        </div>
+        <li><a href="{% url 'contact' %}">Contact us</a>
+        <li><a href="{% url 'login' %}">Log in</a>
+        </li>
+        
+    </ul>
+    <body>
+        <footer>
+            <p>&copy; Copyrigth by evemanagement.com</p>
+        </footer>
+        <div class="slider">
+            <figure>
+                <div class="slide">
+                    <img src="{% static 'images/slider1.jpg' %} alt="birthday event"
+                         >
+                </div>
+                <div class="slide">
+                    <img src="{% static 'images/slider2.jpg' %}" alt="marriage event">
+                </div>
+                <div class="slide">
+                    <img src="{% static 'images/slider3.jpg' %}" alt="meeting event">
+                </div>
+                <div class="slide">
+                    <img src="{% static 'images/slider4.jpg' %}" alt="concert event">
+                </div>
+                <div class="slide">
+                    <img src="{% static 'images/slider5.png' %}" alt="party events">
+                </div>
+            </figure>
+        </div>
+        <section>
+            <h1>Carpe diem!!!!</h1>
+            <div id="op">
+            <p>Its not the event of our lives that shape us,but the meaning we attach to those events.<br>
+            We are here to manage to all the activity relative to event. We provide all the services simultaneously and manage<br> the paperwork online and keeps you up to date of every event. 
+            </p>
+            </div>
+        </section>
+    </body>
+</html>
