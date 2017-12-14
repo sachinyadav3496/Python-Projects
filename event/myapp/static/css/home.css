@@ -76,22 +76,17 @@ header{
     
     
 }
-body{
-    background-image: url(bgimage.jpg);
-    height: 100vh;
-    background-size: cover;
-    background-position: center;
-}
+
 section{
     align-content: center;
 
 }
 section h1{
-    text-align: center;
-    font-size: 40px;
+    text-align:center;
+    font-size: 35px;
     font-style: italic;
     font-family: Apple Chancery, cursive;
-    color: #ffcccc;
+    color: #CCCCCC;
 }
 #op{
     position:relative;
