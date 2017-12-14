@@ -121,7 +121,7 @@ def signup(request):
                 request.session['username']=name
                 request.session['password']=password
 
-                context = { 'name':name,'email':email,'first_name':first_name,'last_name':last_name,'message':"You Have Created your Account Successfully"}
+                context = { 'name':name,'email':email,'first_name':first_name,'last_name':last_name,'message':"You Have Created your Account Successfully",'f':1}
                 return render(request,'myapp/profile.html',context)
 
 
@@ -186,7 +186,7 @@ def adduser(request):
                 email=data.email
                 first_name=data.first_name
                 last_name=data.last_name
-                context = { 'name':name,'email':email,'first_name':first_name,'last_name':last_name, 'message':'Welcome Back to Your Profile' }
+                context = { 'name':name,'email':email,'first_name':first_name,'last_name':last_name, 'message':'Welcome Back to Your Profile','f':1 }
                 request.session['username']=name
                 request.session['password']=password
                 return render(request,'myapp/profile.html',context)
