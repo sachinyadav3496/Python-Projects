@@ -13,6 +13,9 @@
         </div>
         <li><a href="{% url 'contact' %}">Contact us</a>
         <li><a href="{% url 'login' %}">Log in</a>
+        {% if f == 1 %}
+        <li><a href="{% url 'profile' %}">Profile</a>
+        {% endif %}
         </li>
         
     </ul>

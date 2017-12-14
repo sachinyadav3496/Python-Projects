@@ -13,20 +13,61 @@ def base(request):
 
 def about(requset):
 
-    return render(requset,'myapp/about.html')
+    if 'username' in requset.session:
+
+        f = 1
+    else :
+
+        f = 0
+    context = { 'f':f }
+
+    return render(requset,'myapp/about.html',context)
 
 def main(request):
 
-    return render(request,'myapp/home.html')
+     if 'username' in request.session:
+
+        f = 1
+     else :
+
+        f = 0
+     context = { 'f':f }
+
+     return render(request,'myapp/home.html',context)
 
 def login(request):
     myerror = None
+
     context = {'error':myerror}
-    return render(request,'myapp/login.html',context)
+    if 'username' in request.session:
+
+        uname=request.session['username']
+        passwd=request.session['password']
+        res=authenticate(username=uname,password=passwd)
+
+        if res is not None :
+
+                name=request.session['username']
+                data=User.objects.get(username=name)
+                name=data.username
+                email=data.email
+                first_name=data.first_name
+                last_name=data.last_name
+                context = { 'name':name,'email':email,'first_name':first_name,'last_name':last_name, 'message':'You are Already Logged IN' }
+                return render(request,'myapp/profile.html',context)
+        else:
+                error = "Either UserName Or Password is invalid Try Again"
+                return  render(request,'myapp/login.html',{'error':error})
+
+    else :
+
+        return render(request,'myapp/login.html',context)
 
 def signup(request):
 
+
     if request.method == 'POST':
+
 
         form = signup_form(request.POST)
 
@@ -51,6 +92,9 @@ def signup(request):
                 u.last_name=last_name
                 u.save()
 
+                request.session['username']=name
+                request.session['password']=password
+
                 context = { 'name':name,'email':email,'first_name':first_name,'last_name':last_name,'message':"You Have Created your Account Successfully"}
                 return render(request,'myapp/profile.html',context)
 
@@ -69,7 +113,30 @@ def signup(request):
 
 def profile(request):
 
-        return render(request,'myapp/profile.html')
+    if 'username' in request.session:
+
+        uname=request.session['username']
+        passwd=request.session['password']
+        res=authenticate(username=uname,password=passwd)
+
+        if res is not None :
+
+                name=request.session['username']
+                data=User.objects.get(username=name)
+                name=data.username
+                email=data.email
+                first_name=data.first_name
+                last_name=data.last_name
+                context = { 'name':name,'email':email,'first_name':first_name,'last_name':last_name, 'message':'' }
+                return render(request,'myapp/profile.html',context)
+        else:
+                error = "Either UserName Or Password is invalid Try Again"
+                return  render(request,'myapp/login.html',{'error':error})
+
+    else :
+
+        return render(request,'myapp/login.html',context)
+
 
 def adduser(request):
 
@@ -77,6 +144,7 @@ def adduser(request):
     if request.method == 'POST':
 
         form = login_form(request.POST)
+
 
         if form.is_valid():
 
@@ -93,6 +161,8 @@ def adduser(request):
                 first_name=data.first_name
                 last_name=data.last_name
                 context = { 'name':name,'email':email,'first_name':first_name,'last_name':last_name, 'message':'Welcome Back to Your Profile' }
+                request.session['username']=name
+                request.session['password']=password
                 return render(request,'myapp/profile.html',context)
             else:
                 error = "Either UserName Or Password is invalid Try Again"
@@ -105,5 +175,12 @@ def adduser(request):
 
 
 def contact(request):
+    if 'username' in request.session:
 
-    return render(request,'myapp/contact.html')
+        f = 1
+    else :
+
+        f = 0
+    context = { 'f':f }
+
+    return render(request,'myapp/contact.html',context)
