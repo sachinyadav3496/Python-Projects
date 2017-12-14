@@ -10,12 +10,12 @@
     margin: auto;
 }
 .form{
-    position: relative;
+    position: static;
     z-index: 1;
     background-color: transparent;
     max-width: 360px;
-    margin: 0 auto 100px;
-    padding: 45px;
+    margin: 0 auto 90px;
+    padding: 40px;
     text-align: center;
 }
 .form input{
@@ -24,8 +24,8 @@
     background: #f2f2f2;
     width: 100%;
     border: 0;
-    margin: 0 0 15px;
-    padding: 15px;
+    margin: 0 0 10px;
+    padding: 10px;
     box-sizing: border-box;
     font-size: 14px;
 }
@@ -36,7 +36,7 @@
     background: #4CAF50;
     width: 100%;
     border: 0;
-    padding: 15px;
+    padding: 10px;
     color: #FFFFFF;
     font-size: 14px;
     cursor: pointer;
