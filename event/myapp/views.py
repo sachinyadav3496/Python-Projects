@@ -36,9 +36,17 @@ def main(request):
      return render(request,'myapp/home.html',context)
 
 def login(request):
-    myerror = None
 
-    context = {'error':myerror}
+    myerror = None
+    if 'username' in request.session:
+
+        f = 1
+    else :
+
+        f = 0
+
+
+    context = {'error':myerror,'f':f}
     if 'username' in request.session:
 
         uname=request.session['username']
@@ -53,7 +61,7 @@ def login(request):
                 email=data.email
                 first_name=data.first_name
                 last_name=data.last_name
-                context = { 'name':name,'email':email,'first_name':first_name,'last_name':last_name, 'message':'You are Already Logged IN' }
+                context = { 'name':name,'email':email,'first_name':first_name,'last_name':last_name, 'message':'You are Already Logged IN','f':1 }
                 return render(request,'myapp/profile.html',context)
         else:
                 error = "Either UserName Or Password is invalid Try Again"
@@ -62,6 +70,24 @@ def login(request):
     else :
 
         return render(request,'myapp/login.html',context)
+
+
+
+def logout(request):
+
+    if request.method == 'POST':
+
+        del request.session['username']
+        del request.session['password']
+
+        return render(request,'myapp/home.html')
+
+    else:
+
+        return render(request,'myapp/login.html',{ 'error':"Form Should be POST Type" })
+
+
+
 
 def signup(request):
 
@@ -127,7 +153,7 @@ def profile(request):
                 email=data.email
                 first_name=data.first_name
                 last_name=data.last_name
-                context = { 'name':name,'email':email,'first_name':first_name,'last_name':last_name, 'message':'' }
+                context = { 'name':name,'email':email,'first_name':first_name,'last_name':last_name, 'message':'','f':1 }
                 return render(request,'myapp/profile.html',context)
         else:
                 error = "Either UserName Or Password is invalid Try Again"

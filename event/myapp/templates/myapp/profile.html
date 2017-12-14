@@ -31,6 +31,15 @@
     <h2>Last Name = {{ last_name }}</h2>
 </section>
 
+
+ <form class="login-form" action="/logout/" method="post">
+     {% csrf_token %}
+     <button>Logout</button>
+
+ </form>
+
+
+
 {% block footer %}
 {% endblock %}
 
