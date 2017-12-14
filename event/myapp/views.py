@@ -100,29 +100,33 @@ def signup(request):
         if form.is_valid():
 
             name = form.cleaned_data['name']
-            name=str(name).strip()
             first_name=form.cleaned_data['first_name']
             last_name=form.cleaned_data['last_name']
             email=form.cleaned_data['email']
             password=form.cleaned_data['password']
 
+
+
             try:
-                user = User.objects.get(username=name)
-                myerror = "User already Exist so Please Login<br />If not register then choose other username"
-                context = { 'error':myerror}
-                return render(request,'myapp/login.html',context )
+                    user = User.objects.get(username=name)
+                    myerror = "User already Exist so Please Login.If not register then choose other username"
+                    context = { 'error':myerror}
+                    return render(request,'myapp/login.html',context )
             except:
 
-                u = User.objects.create_user(name,password,email)
-                u.first_name=first_name
-                u.last_name=last_name
-                u.save()
+                    u = User.objects.create_user(username=name,password=password)
+                    u.email=email
+                    u.first_name=first_name
+                    u.last_name=last_name
 
-                request.session['username']=name
-                request.session['password']=password
 
-                context = { 'name':name,'email':email,'first_name':first_name,'last_name':last_name,'message':"You Have Created your Account Successfully",'f':1}
-                return render(request,'myapp/profile.html',context)
+                    request.session['username']=name
+                    request.session['password']=password
+
+                    u.save()
+
+                    context = { 'name':name,'email':email,'first_name':first_name,'last_name':last_name,'message':"You Have Created your Account Successfully",'f':1}
+                    return render(request,'myapp/profile.html',context)
 
 
 
@@ -161,6 +165,7 @@ def profile(request):
 
     else :
 
+        context = {'error':"Please Login First"}
         return render(request,'myapp/login.html',context)
 
 
@@ -175,8 +180,9 @@ def adduser(request):
         if form.is_valid():
 
             name = form.cleaned_data['name']
-            name=str(name).strip()
+            #name=str(name).strip()
             password=form.cleaned_data['password']
+            #password=str(password).strip()
 
             user = authenticate(username=name,password=password)
 
