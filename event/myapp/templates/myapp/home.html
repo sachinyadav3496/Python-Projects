@@ -5,12 +5,14 @@
 <html lang="en-us">
     <head>
         <meta charset="utf-8" />
-        <link rel="stylesheet" href="{% static 'css/home.css' %}">
         <link rel="stylesheet" href="{% static 'css/main.css' %}">
+        <link rel="stylesheet" href="{% static 'css/home.css' %}">
+
     </head>
 
      {% block header %}
     {% endblock %}
+
     <body>
 
         <div class="slider">
@@ -32,6 +34,8 @@
                 </div>
             </figure>
         </div>
+
+
         <section>
             <h1>Carpe diem!!!!</h1>
             <div id="op">
@@ -43,5 +47,7 @@
 
    {% block footer %}
     {% endblock %}
+
+
     </body>
 </html>
