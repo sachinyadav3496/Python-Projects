@@ -216,3 +216,7 @@ def contact(request):
     context = { 'f':f }
 
     return render(request,'myapp/contact.html',context)
+
+def reset_password(request):
+
+    return HttpResponse("Welcome to password reset")

@@ -13,6 +13,7 @@ urlpatterns = [
     path('contact/',views.contact,name='contact'),
     path('about/',views.about,name='about'),
     path('base/',views.base,name='base'),
-    path('logout/',views.logout,name='logout')
+    path('logout/',views.logout,name='logout'),
+    path('reset_password/',views.reset_password,name='reset_password')
 
 ]
