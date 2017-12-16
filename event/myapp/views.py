@@ -1,10 +1,14 @@
-
+import smtplib
 from django.shortcuts import render
 from django.http import HttpResponse
 # Create your views here.
-from .forms import signup_form,login_form
+from .forms import signup_form,login_form,reset_form,password
 from django.contrib.auth.models import User
 from django.contrib.auth    import authenticate
+from django.http import HttpResponseRedirect
+from django.core.mail import send_mail
+from random import randint
+from django.conf import settings
 
 def base(request):
 
@@ -219,4 +223,102 @@ def contact(request):
 
 def reset_password(request):
 
-    return HttpResponse("Welcome to password reset")
+    if request.method == 'POST':
+
+        form = reset_form(request.POST)
+
+        if form.is_valid():
+
+            otp = []
+            for var in range(4):
+
+                otp.append(str(randint(0,9)))
+
+            otp = ''.join(otp)
+
+            message = "Hey Check this out \nYour OTP for reset password is %s "%(otp)
+
+            subject = "Reset Password"
+            from_email = "3496.grras@gmail.com"
+
+            to_email = form.cleaned_data['email']
+            send_mail(subject, message, from_email, (to_email,),auth_password = settings.EMAIL_HOST_PASSWORD,fail_silently=False)
+            request.session['OTP']=int(otp)
+            request.session['email']=to_email
+
+            form = password()
+            return render(request,'myapp/change_password.html',{ 'form':form })
+
+        else:
+
+            form = reset_form()
+
+        return render(request,'myapp/reset_password.html',{'form':form})
+    else:
+
+        form = reset_form()
+        return render(request,'myapp/reset_password.html',{'form':form})
+
+
+def update_password(request):
+
+    if request.session['OTP'] and request.session['email']:
+
+        if request.method == 'POST':
+
+            form = password(request.POST)
+
+            if form.is_valid():
+
+                otp = request.session['OTP']
+
+                OTP = form.cleaned_data['OTP']
+
+                if otp == OTP :
+
+                    obj = User.objects.get(email=request.session['email'])
+
+                    obj.set_password(form.cleaned_data['new_password'])
+                    obj.save()
+
+                    del request.session['email']
+                    del request.session['OTP']
+                    request.session['username'] = obj.username
+                    request.session['password'] = form.cleaned_data['new_password']
+
+
+                    name=obj.username
+                    email=obj.email
+                    first_name=obj.first_name
+                    last_name=obj.last_name
+                    context = { 'name':name,'email':email,'first_name':first_name,'last_name':last_name, 'message':'Welcome Back to Your Profile','f':1 }
+
+                    return render(request,'myapp/profile.html',context)
+
+                else:
+
+                    error = "OTP Does Not Match Try Again"
+                    return render(request,'myapp/change_password.html',{'error':error})
+
+            else:
+
+                error = "Form Details is invalid"
+                return render(request,'myapp/login.html',{'error':error})
+
+        else:
+
+                error = "Form Details is invalid"
+                return render(request,'myapp/login.html',{'error':error})
+
+    else:
+
+            error = "Form Details is invalid"
+            return render(request,'myapp/login.html',{'error':error})
+
+
+
+
+
+
+
+

@@ -43,8 +43,9 @@
                     {% csrf_token %}
                     <input type="text" placeholder="User name" value="{{ name }}" name="name"/>
                     <input type="password" placeholder="Password" value="{{ password }}" name="password"/>
+
                     <button>Login</button>
-                    <a href="{% url "reset_password" %}" style="color: whitesmoke">Reset Password</a>
+                     <a href="{% url "reset_password" %}" style="color: forestgreen;" ><b>Forgot Password</b></a>
                     <p class="message">Not Registerd? <a href="#">Register</a></p>
                 </form>
             </div>
