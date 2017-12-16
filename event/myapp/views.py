@@ -2,7 +2,7 @@ import smtplib
 from django.shortcuts import render
 from django.http import HttpResponse
 # Create your views here.
-from .forms import signup_form,login_form,reset_form,password
+from .forms import signup_form,login_form,reset_form,password,userprofile_form
 from django.contrib.auth.models import User
 from django.contrib.auth    import authenticate
 from django.http import HttpResponseRedirect
@@ -161,7 +161,8 @@ def profile(request):
                 email=data.email
                 first_name=data.first_name
                 last_name=data.last_name
-                context = { 'name':name,'email':email,'first_name':first_name,'last_name':last_name, 'message':'','f':1 }
+                form = userprofile_form()
+                context = { 'name':name,'email':email,'first_name':first_name,'last_name':last_name, 'message':'','f':1,'form':form }
                 return render(request,'myapp/profile.html',context)
         else:
                 error = "Either UserName Or Password is invalid Try Again"

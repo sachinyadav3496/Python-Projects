@@ -24,3 +24,10 @@ class password(forms.Form):
     new_password = forms.CharField(widget=forms.PasswordInput)
     OTP = forms.IntegerField()
 
+class userprofile_form(forms.Form):
+
+    profile_pic = forms.ImageField()
+    birth_day = forms.DateField()
+    bio = forms.Textarea()
+    mob_no = forms.IntegerField()
+
