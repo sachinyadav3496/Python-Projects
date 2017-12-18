@@ -32,7 +32,7 @@
     <h2>Last Name = {{ last_name }}</h2>
 </section>
 
-<section>
+<section style="color: whitesmoke;align-items: center";>
  <form action="/logout/" method="post">
      {% csrf_token %}
      <button >Logout</button>
@@ -41,13 +41,18 @@
 </section>
 
 <section style="color: ghostwhite">
-<form action="/logout/" method="post">
+<form action="/upload_pic/" method="post">
 
     {% csrf_token %}
 
-    {{ form }}
+    <p style="color: yellowgreen"> Upload Profile Picture {{ form.profile_pic }} </p>
+    <p style="color: yellowgreen"> Birthday {{ form.birth_day }} </p>
+    <p style="color: yellowgreen"> Bio {{ form.bio }} </p>
+    <p style="color: yellowgreen"> Mobile No. {{ form.mob_no }} </p>
+    <input type="submit" style="background-color: #4CAF50;color: ghostwhite" />
+
 </form>
-<section>
+</section>
 
 
 

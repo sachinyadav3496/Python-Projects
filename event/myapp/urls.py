@@ -17,5 +17,6 @@ urlpatterns = [
     path('logout/',views.logout,name='logout'),
     path('reset_password/',views.reset_password,name='reset_password'),
     path('update_password/',views.update_password,name='update_password'),
+    path('upload_pic/',views.upload_pic,name='upload_pic'),
 
 ]

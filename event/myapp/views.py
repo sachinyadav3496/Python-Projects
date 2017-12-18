@@ -9,6 +9,7 @@ from django.http import HttpResponseRedirect
 from django.core.mail import send_mail
 from random import randint
 from django.conf import settings
+from .models import UserProfile
 
 def base(request):
 
@@ -317,6 +318,15 @@ def update_password(request):
             return render(request,'myapp/login.html',{'error':error})
 
 
+def upload_pic(request):
+
+    if request.method == 'POST' :
+
+        form = userprofile_form(request.POST,request.FILES)
+
+        if form.is_valid():
+
+            m = UserProfile.objects.get(pk=1)
 
 
 

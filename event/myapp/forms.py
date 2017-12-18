@@ -28,6 +28,6 @@ class userprofile_form(forms.Form):
 
     profile_pic = forms.ImageField()
     birth_day = forms.DateField()
-    bio = forms.Textarea()
+    bio = forms.CharField(max_length=2000)
     mob_no = forms.IntegerField()
 
