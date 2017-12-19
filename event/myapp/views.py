@@ -223,6 +223,21 @@ def contact(request):
 
     return render(request,'myapp/contact.html',context)
 
+
+def wedding(request):
+    if 'username' in request.session:
+
+        f = 1
+    else :
+
+        f = 0
+    context = { 'f':f }
+
+    return render(request,'myapp/wedding.html',context)
+
+
+
+
 def reset_password(request):
 
     if request.method == 'POST':

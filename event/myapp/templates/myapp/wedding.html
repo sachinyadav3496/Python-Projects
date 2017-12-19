@@ -1,0 +1,144 @@
+{% load static %}
+{% include 'myapp/header.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Theme Made By www.w3schools.com - No Copyright -->
+  <title>Wedding</title>
+
+{% block link_block %}
+    {% endblock %}
+  <style>
+  .container {
+      padding: 80px 120px;
+      
+  }
+  .bg-1 {
+      background: #2d2d30;
+      color: #bdbdbd;
+  }
+  #footer{
+          position: relative;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #333;
+  text-align: center;   
+    color: white;
+      }
+  .bg-1 h3 {color: #fff;}
+  .bg-1 p {font-style: italic;}
+  </style>
+</head>
+<body>
+
+{% block nav_block %}
+{% endblock %}
+
+
+<!-- Container (TOUR Section) -->
+<div class="bg-1">
+  <div class="container">
+    <h3 class="text-center">Venues</h3>
+    <p class="text-center">Lorem ipsum we'll select some venues.<br> Remember to book your Venue!</p>
+    
+    <div class="row text-center">
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <img src="{% static 'images/Venue1.jpg' %}" alt="Paris" width="400" height="300">
+          <p><strong>Paris</strong></p>
+          <p>Fri. 27 November 2015</p>
+          <button class="btn">Choose Place</button>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <img src="{% static 'images/Venue2.jpg' %}" alt="New York" width="400" height="300">
+          <p><strong>New York</strong></p>
+          <p>Sat. 28 November 2015</p>
+          <button class="btn">Choose Place</button>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <img src="{% static 'images/Venue3.jpg' %}" alt="San Francisco" width="400" height="300">
+          <p><strong>San Francisco</strong></p>
+          <p>Sun. 29 November 2015</p>
+          <button class="btn">Choose Place</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="bg-1">
+  <div class="container">
+    <h3 class="text-center">Starters</h3>
+    <p class="text-center">Lorem ipsum we'll select some starters.<br> Let's taste some</p>
+    
+    <div class="row text-center">
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <img src="{% static 'images/starter1.jpg' %}" alt="Paris" width="400" height="300">
+          <p><strong>Soup</strong></p>
+          
+          <button class="btn">Taste</button>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <img src="{% static 'images/starter2.jpg' %}" alt="New York" width="400" height="300">
+          <p><strong>Dosa</strong></p>
+          <button class="btn">Taste</button>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <img src="{% static 'images/starter3.jpg' %}" alt="San Francisco" width="400" height="300">
+          <p><strong>Passta</strong></p>
+          
+          <button class="btn">Taste</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+<div class="bg-1">
+  <div class="container">
+    <h3 class="text-center">Deserts</h3>
+    <p class="text-center">Lorem ipsum we'll select some deserts.<br> Let's taste some</p>
+    
+    <div class="row text-center">
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <img src="{% static 'images/desert1.jpg' %}" alt="Paris" width="400" height="300">
+          <p><strong>Ice Cream</strong></p>
+          
+          <button class="btn">Taste</button>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <img src="{% static 'images/dessert2.jpg' %}" alt="New York" width="400" height="300">
+          <p><strong>Cake</strong></p>
+          <button class="btn">Taste</button>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <img src="{% static 'images/dessert3.jpg' %}" alt="San Francisco" width="400" height="300">
+          <p><strong>Cup Cakes</strong></p>
+          
+          <button class="btn">Taste</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer id="footer">
+    <p>&copy; Copyright by evemanagement.com</p>
+</footer>
+</body>
+</html>

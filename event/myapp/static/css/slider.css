@@ -1,84 +1,103 @@
-*{
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
+* {
+	margin: 0;
+	padding: 0;
 }
-body{
-    margin: 0 auto;
-    width: 70%;
+
+body {
+	background-color: #f3f3f3;
 }
-.slider{
-    overflow: hidden;
-    height: 400px;
-    
+
+.main-banner {
+	margin: 0 auto;
+	width: 1200px;
+	height: 400px;
+	background-color: #fff;
+	overflow: hidden;
+	position: relative;
 }
-.slider figure div{
-    float: left;
-    width: 20%;
+
+.main-banner .imgban {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0px;
+	transition: all ease-in-out 500ms;
+	-webkit-transition: all ease-in-out 500ms;
 }
-.slider figure img{
-    width: 100%
-    float: left;
+.main-banner .imgban-box h2 {
+	font-family: arial;
+	font-size: 60px;
+	color: #fff;
 }
-.slider figure{
-    position: relative;
-    width: 500%; 
-    margin: 0px;
-    left: 0;
-    animation: 20s anime infinite;
+.main-banner .imgban-box p {
+	padding-top: 6px;
+	font-family: arial;
+	font-size: 16px;
+	color: #fff;
 }
-@keyframes anime{
-    0%{
-        left: 0%;
-    }
-    10%{
-        left: 0%;
-    }
-    12%{
-        left: -100%
-    }
-    22%{
-        left: -100%;
-    }
-    24%{
-        left: -200%;
-    }
-    34%{
-        left: -200%;
-    }
-    36%{
-        left: -300%
-    }
-    46%{
-        left: -300%
-    }
-    48%{
-        left: -400%
-    }
-    58%{
-        left: -400%
-    }
-    60%{
-        left: -300%
-    }
-    70%{
-        left: -300%;
-    }
-    72%{
-        left: -200%;
-    }
-    82%{
-        left: -200;
-    }
-    84%{
-        left: -100%;
-    }
-    94%{
-        left: -100%;
-    }
-    96%{
-        left: 0%;
-    }
-    
-    
+
+.main-banner #imgban3 {
+	background-image: url(img/slider3.png);
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.main-banner #imgban3 .imgban-box {
+	padding-top: 220px;
+	padding-left: 100px;
+}
+
+.main-banner #imgban2 {
+	background-image: url(img/slider2.jpg);
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.main-banner #imgban2 .imgban-box {
+	padding-top: 220px;
+	padding-right: 100px;
+	float: right;
+	text-align: right;
+}
+
+.main-banner #imgban1 {
+	background-image: url(img/slider1.jpg);
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.main-banner #imgban1 .imgban-box {
+	padding-top: 70px;
+	padding-left: 100px;
+}
+
+.imgbanbtn {
+	width: 40px;
+	height: 40px;
+	background-color: #000;
+	border-radius: 4px;
+	position: absolute;
+	top: 180px;
+	z-index: 2000;
+	opacity: 0.8;
+	cursor: pointer;
+}
+.imgbanbtn:hover {
+	opacity: 0.9;
+}
+
+.imgbanbtn-prev {
+	left: 5px;
+	background-image: url(img/arrow-left.png);
+	background-size: 60%;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.imgbanbtn-next {
+	right: 5px;
+	background-image: url(img/arrow-right.png);
+	background-size: 60%;
+	background-position: center;
+	background-repeat: no-repeat;
 }

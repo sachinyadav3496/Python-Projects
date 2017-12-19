@@ -1,13 +1,8 @@
 body{
-    background-image:url(bgimage.jpg);
+    background-image: url(bgimage.jpg);
     height: 100vh;
     background-size: cover;
     background-position: center;
-}
-.error
-{
-    color: #FFFFFF;
-    font-size: large;
 }
 .login-page{
     width: 360px;
@@ -15,12 +10,12 @@ body{
     margin: auto;
 }
 .form{
-    position: static;
+    position: relative;
     z-index: 1;
     background-color: transparent;
     max-width: 360px;
-    margin: 0 auto 90px;
-    padding: 40px;
+    margin: 0 auto 100px;
+    padding: 45px;
     text-align: center;
 }
 .form input{
@@ -29,8 +24,8 @@ body{
     background: #f2f2f2;
     width: 100%;
     border: 0;
-    margin: 0 0 10px;
-    padding: 10px;
+    margin: 0 0 15px;
+    padding: 15px;
     box-sizing: border-box;
     font-size: 14px;
 }
@@ -41,7 +36,7 @@ body{
     background: #4CAF50;
     width: 100%;
     border: 0;
-    padding: 10px;
+    padding: 15px;
     color: #FFFFFF;
     font-size: 14px;
     cursor: pointer;
@@ -62,4 +57,53 @@ body{
 .form .register-form{
     display: none;
 }
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
 
+li {
+    float: left;
+}
+
+li a, .dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+    background-color: red;
+}
+
+li.dropdown {
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
