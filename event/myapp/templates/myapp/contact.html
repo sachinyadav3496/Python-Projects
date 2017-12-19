@@ -1,40 +1,62 @@
 {% load static %}
 {% include 'myapp/header.html' %}
-<!DOCTYPE html>
+<!Doctype html>
 <html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-        <meta charset="utf-8" />
-        <link rel="stylesheet" href="{% static 'css/main.css' %}">
-        <link rel="stylesheet" href="{% static 'css/contact.css' %}">
+    <head>
+
+        <link rel="stylesheet" href="{% static 'css/home.css' %}">
+        <title>Contact Us</title>
+  {% block link_block %}
+        {% endblock %}
+    <style>
+        .container {
+      padding: 80px 120px;
+            color: lightyellow;
+
+  }
+        .col-md-4 p{
+            color: white;
+            background-color: #333333;
+        }
+    </style>
     </head>
-{% block header %}
-{% endblock %}
 <body>
-
-<section id="contact">
-    <h1>Contact us on </h1>
-    <table>
-        <tr>
-            <td><h3>Name:</h3></td>
-            <td><h3>EveManagement Solutions</h3></td>
-        </tr>
-        <tr>
-            <td><h3>Contact:</h3></td>
-            <td><h3>1234567890</h3></td>
-
-        </tr>
-        <tr>
-            <td><h3>email:</h3></td>
-            <td><h3>evemanagement@gmail.com</h3></td>
-        </tr>
-    </table>
-
-</section>
-
-{% block footer %}
+{% block nav_block %}
 {% endblock %}
+    <div class="container">
+  <h3 class="text-center" style="background-color: #333333">Contact</h3>
+  <p class="text-center" style="background-color: #333333"><em>We love our fans!</em></p>
+
+  <div class="row">
+    <div class="col-md-4">
+      <p>Fan? Drop a note.</p>
+      <p><span class="glyphicon glyphicon-map-marker"></span>Jaipur, India</p>
+      <p><span class="glyphicon glyphicon-phone"></span>Phone: +141 1515151515</p>
+      <p><span class="glyphicon glyphicon-envelope"></span>Email: mail@mail.com</p>
+    </div>
+    <div class="col-md-8">
+      <div class="row">
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="name" name="name" placeholder="Name" type="text"   style="background-color: #333333"   required>
+        </div>
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="email" name="email" placeholder="Email" type="email" required style="background-color: #333333">
+        </div>
+      </div>
+      <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5" style="background-color: #333333"></textarea>
+      <br>
+      <div class="row">
+        <div class="col-md-12 form-group">
+          <button class="btn pull-right" type="submit" style="background-color: #333333">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <footer id="footer" style="background-color: #333333;text-align: center;color: ghostwhite;position: inherit">
+            <p>&copy; Copyright by evemanagement.com</p>
+</footer>
+
 
 </body>
 </html>

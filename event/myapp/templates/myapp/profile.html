@@ -32,7 +32,7 @@
     <h2>Last Name = {{ last_name }}</h2>
 </section>
 
-<section style="color: whitesmoke;align-items: center";>
+<section style="color: whitesmoke;align-items: center;background-color: #333333">
  <form action="/logout/" method="post">
      {% csrf_token %}
      <button >Logout</button>
@@ -40,24 +40,10 @@
  </form>
 </section>
 
-<section style="color: ghostwhite">
-<form action="/upload_pic/" method="post">
 
-    {% csrf_token %}
-
-    <p style="color: yellowgreen"> Upload Profile Picture {{ form.profile_pic }} </p>
-    <p style="color: yellowgreen"> Birthday {{ form.birth_day }} </p>
-    <p style="color: yellowgreen"> Bio {{ form.bio }} </p>
-    <p style="color: yellowgreen"> Mobile No. {{ form.mob_no }} </p>
-    <input type="submit" style="background-color: #4CAF50;color: ghostwhite" />
-
-</form>
-</section>
-
-
-
-{% block footer %}
-{% endblock %}
+<footer style="background-color: #333333;color: ghostwhite;text-align: center">
+            <p>&copy; Copyright by evemanagement.com</p>
+</footer>
 
 
 </body>
