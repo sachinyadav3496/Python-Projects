@@ -32,7 +32,7 @@ bk = Button(root,text='DEL',command=lambda:bk_sp(),width=16,height=3,bg='#666666
 bk.grid(row=0,column=3) #attaching the backspace button to it's place
 
 bclr = Button(root,text='CLR',command=lambda:clr_fun(),width=16,height=2,bg='#666666',fg='#FFFFFF',relief=RIDGE,bd=5) #Clear Button
-bclr.grid(row=5,column=1)
+bclr.grid(row=5,column=1) #crating a Clear button which will wipe the screen for next calcultation
 
 bq = Button(root,text='QUIT',command=lambda:root.destroy(),width=16,height=2,bg='#666666',fg='#FFFFFF',relief=RIDGE,bd=5) #Quit Button
 bq.grid(row=5,column=0)
