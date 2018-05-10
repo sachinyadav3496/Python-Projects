@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Sucess Page</title>
+</head>
+
+<body style=" background: rgba(19, 35, 47, 0.9);;
+  font-family: 'Titillium Web', sans-serif;">
+<div style="float: right">
+<button style=" float: right;
+border: 0;
+  outline: none;
+  border-radius: 1px;
+  padding: 15px 0;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  background: #1ab188;
+  color: #ffffff;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  -webkit-appearance: none;" >
+<a href="/home">Home</a></a>
+</button>
+</div>
+<div style="float: left;height: 500px;width: 500px;padding-top:100px;padding-left: 50px">
+<h3 style="color: ghostwhite">Result</h3>
+<p style="color: ghostwhite;font-size: x-large">
+{% for var in result %}
+
+    {{ var }}
+    <br />
+{% endfor %}
+</p>
+</div>
+<div style="float: right;height: 500px;width: 500px;padding-top: 100px;">
+    {% load static %}
+    <img src="{% static 'test.jpg' %}" alt="Image Extract" style=" width:500px;height:500px;">
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+body{
+    background-image:url(bgimage.jpg);
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+#contact
+{
+    color:greenyellow;
+}
+#contact h1
+{
+    color:greenyellow;
+}
+#contact h2
+{
+    color: greenyellow;
+}
+
+#contact h3
+{
+    color:greenyellow;
+}

@@ -1,0 +1,62 @@
+<!Doctype html>
+<html>
+    <head>
+        <title>Login</title>
+        <link rel="stylesheet" href="{% static "css/login.css" %}" >
+        <link rel="stylesheet" href="{% static "css/main.css" %}" >
+
+    </head>
+
+
+
+    <header class="error">
+
+        {% if error %}
+        <h1 class="error" >{{ error }}</h1>
+
+    {% endif %}
+    </header>
+
+    <body>
+
+
+        <div class="login-page">
+
+
+
+
+            <div class="form">
+                <form class="register-form"  method="post"  action="/signup/">
+                    {% csrf_token %}
+
+                    <input type="text" placeholder="User name" value="{{ name }}" name="name"/>
+                    <input type="text" placeholder="First Name" value="{{ first_name }}" name="first_name"/>
+                    <input type="text" placeholder="Last Name" value="{{ last_name }}" name="last_name"/>
+                    <input type="password" placeholder="Password" value="{{ password }}" name="password"/>
+                    <input type="email" placeholder="Email id" value="{{ email }}" name="email"/>
+                    <button>Sign up</button>
+                    <p class="message">Already Registered? <a href="#">Login</a></p>    
+                </form>
+                <form class="login-form" action="/adduser/" method="post">
+                    {% csrf_token %}
+                    <input type="text" placeholder="User name" value="{{ name }}" name="name"/>
+                    <input type="password" placeholder="Password" value="{{ password }}" name="password"/>
+
+                    <button>Login</button>
+                     <a href="{% url "reset_password" %}" style="color: forestgreen;" ><b>Forgot Password</b></a>
+                    <p class="message">Not Registerd? <a href="#">Register</a></p>
+                </form>
+            </div>
+        </div>
+        <script src={%  static  'js/jquery-3.2.1.min.js' %} ></script>
+        <script>
+            $('.message a').click(function(){
+                $('form').animate({height: "toggle",opacity: "toggle"},"slow");
+            });
+        </script>
+       
+<footer style="background-color: #333333;color: ghostwhite;text-align: center;position: absolute;width: 100%;">
+            <p>&copy; Copyright by evemanagement.com</p>
+</footer>
+    </body>
+</html>

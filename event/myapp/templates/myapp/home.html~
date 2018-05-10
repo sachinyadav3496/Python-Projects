@@ -1,0 +1,228 @@
+{% load static %}
+{% include 'myapp/header.html' %}
+<!Doctype html>
+<html>
+    <head>
+        <link rel="stylesheet" href="{% static 'css/home.css' %}">
+        <link rel="stylesheet" href="{% static 'css/slider.css' %}">
+        <title>Home</title>
+		{% block link_block %}
+		{% endblock %}
+  <style>
+  .container {
+      padding: 80px 120px;
+      margin-top: 25px;
+  }
+  .bg-1 {
+      /*background: #2d2d30; */
+      color: #bdbdbd;
+  }
+  .bg-1 h3 {color: #fff;}
+  .bg-1 p {font-style: italic;}
+  </style>
+    
+	</head>
+    
+    <body>
+    
+{% block nav_block %}
+{% endblock %}
+       
+
+	 <div class="main-banner" id="main-banner">
+	<div class="imgbanbtn imgbanbtn-prev" id="imgbanbtn-prev"></div>
+	<div class="imgban" id="imgban3">
+		<div class="imgban-box">
+			
+		</div>
+	</div>
+	<div class="imgban" id="imgban2">
+		<div class="imgban-box">
+			
+		</div>
+	</div>
+	<div class="imgban" id="imgban1">
+		<div class="imgban-box">
+			
+		</div>
+	</div>
+	<div class="imgbanbtn imgbanbtn-next" id="imgbanbtn-next"></div>
+</div>
+
+<script>
+	var imageCount = 3;
+	var bannerStatus = 1;
+	var bannerTimer = 4000;
+
+	window.onload = function() {
+		bannerLoop();
+	}
+
+	var startBannerLoop = setInterval(function(){
+		bannerLoop();
+	}, bannerTimer);
+
+	document.getElementById("main-banner").onmouseenter = function(){
+		clearInterval(startBannerLoop);
+	}
+	document.getElementById("main-banner").onmouseleave = function(){
+		startBannerLoop = setInterval(function(){
+			bannerLoop();
+		}, bannerTimer);
+	}
+
+	document.getElementById("imgbanbtn-prev").onclick = function(){
+		/*I removed the status checks since they are no longer needed with the new loop I created to handle the backwards loop*/
+		bannerLoopBack();
+	}
+	document.getElementById("imgbanbtn-next").onclick = function(){
+		bannerLoop();
+	}
+
+	function bannerLoop() {
+		if (bannerStatus === 1) {
+			document.getElementById("imgban2").style.opacity = "0";
+			setTimeout(function(){
+				document.getElementById("imgban1").style.right = "0px";
+				document.getElementById("imgban1").style.zIndez = "1000";
+				document.getElementById("imgban2").style.right = "-1200px";
+				document.getElementById("imgban2").style.zIndez = "1500";
+				document.getElementById("imgban3").style.right = "1200px";
+				document.getElementById("imgban3").style.zIndez = "500";
+			}, 500);
+			setTimeout(function(){
+				document.getElementById("imgban2").style.opacity = "1";
+			}, 1000);
+			bannerStatus = 2;
+		}
+		else if (bannerStatus === 2) {
+			document.getElementById("imgban3").style.opacity = "0";
+			setTimeout(function(){
+				document.getElementById("imgban2").style.right = "0px";
+				document.getElementById("imgban2").style.zIndez = "1000";
+				document.getElementById("imgban3").style.right = "-1200px";
+				document.getElementById("imgban3").style.zIndez = "1500";
+				document.getElementById("imgban1").style.right = "1200px";
+				document.getElementById("imgban1").style.zIndez = "500";
+			}, 500);
+			setTimeout(function(){
+				document.getElementById("imgban3").style.opacity = "1";
+			}, 1000);
+			bannerStatus = 3;
+		}
+		else if (bannerStatus === 3) {
+			document.getElementById("imgban1").style.opacity = "0";
+			setTimeout(function(){
+				document.getElementById("imgban3").style.right = "0px";
+				document.getElementById("imgban3").style.zIndez = "1000";
+				document.getElementById("imgban1").style.right = "-1200px";
+				document.getElementById("imgban1").style.zIndez = "1500";
+				document.getElementById("imgban2").style.right = "1200px";
+				document.getElementById("imgban2").style.zIndez = "500";
+			}, 500);
+			setTimeout(function(){
+				document.getElementById("imgban1").style.opacity = "1";
+			}, 1000);
+			bannerStatus = 1;
+		}
+	}
+
+	/*This is the new loop which handles the backwards loop*/
+	function bannerLoopBack() {
+		if (bannerStatus === 1) {
+			document.getElementById("imgban3").style.opacity = "0";
+			setTimeout(function(){
+				document.getElementById("imgban1").style.right = "0px";
+				document.getElementById("imgban1").style.zIndez = "1000";
+				document.getElementById("imgban2").style.right = "-1200px";
+				document.getElementById("imgban2").style.zIndez = "1500";
+				document.getElementById("imgban3").style.right = "1200px";
+				document.getElementById("imgban3").style.zIndez = "500";
+			}, 500);
+			setTimeout(function(){
+				document.getElementById("imgban3").style.opacity = "1";
+			}, 1000);
+			bannerStatus = 2;
+		}
+		else if (bannerStatus === 2) {
+			document.getElementById("imgban2").style.opacity = "0";
+			setTimeout(function(){
+				document.getElementById("imgban3").style.right = "0px";
+				document.getElementById("imgban3").style.zIndez = "1000";
+				document.getElementById("imgban1").style.right = "-1200px";
+				document.getElementById("imgban1").style.zIndez = "1500";
+				document.getElementById("imgban2").style.right = "1200px";
+				document.getElementById("imgban2").style.zIndez = "500";
+			}, 500);
+			setTimeout(function(){
+				document.getElementById("imgban2").style.opacity = "1";
+			}, 1000);
+			bannerStatus = 3;
+		}
+		else if (bannerStatus === 3) {
+			document.getElementById("imgban1").style.opacity = "0";
+			setTimeout(function(){
+				document.getElementById("imgban2").style.right = "0px";
+				document.getElementById("imgban2").style.zIndez = "1000";
+				document.getElementById("imgban3").style.right = "-1200px";
+				document.getElementById("imgban3").style.zIndez = "1500";
+				document.getElementById("imgban1").style.right = "1200px";
+				document.getElementById("imgban1").style.zIndez = "500";
+			}, 500);
+			setTimeout(function(){
+				document.getElementById("imgban1").style.opacity = "1";
+			}, 1000);
+			bannerStatus = 1;
+		}
+	}
+</script>
+<div class="bg-1">
+  <div class="container">
+    <h3 class="text-center">OUR SERVICES</h3>
+    <p class="text-center">Lorem ipsum we'll select service you want.<br> </p>
+    
+    <div class="row text-center">
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <img src="{% static 'images/slider4.jpg' %}" alt="Paris" width="400" height="300">
+          <p><strong>Cocerts</strong></p>
+          <p>Singing,Dancing</p>
+          <button class="btn">Select</button>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <img src="{% static 'images/slider1.jpg' %}" alt="New York" width="400" height="300">
+          <p><strong>Birthdays</strong></p>
+          <p>Birthday Parties</p>
+          <button class="btn">Select</button>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <img src="{% static 'images/slider2.jpg' %}" alt="San Francisco" width="400" height="300">
+          <p><strong>Marriages</strong></p>
+          <p>Get Married</p>
+          <button class="btn"><a href="{% url 'wedding' %}" >Select</a></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+       
+        <section>
+            <h1>Carpe diem!!!!</h1>
+            <div id="op">
+            <p>Its not the event of our lives that shape us,but the meaning we attach to those events.<br>
+            We are here to manage to all the activity relative to event. We provide all the services simultaneously and manage<br> the paperwork online and keeps you up to date of every event. 
+            </p>
+            </div>
+        </section>
+
+
+
+<footer style="background-color: #333333;color: ghostwhite;text-align: center">
+            <p>&copy; Copyright by evemanagement.com</p>
+</footer>
+    </body>
+</html>

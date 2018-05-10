@@ -96,7 +96,6 @@ def logout(request):
 
 def signup(request):
 
-
     if request.method == 'POST':
 
 
@@ -176,22 +175,14 @@ def profile(request):
 
 
 def adduser(request):
-
-
     if request.method == 'POST':
-
         form = login_form(request.POST)
-
-
         if form.is_valid():
-
             name = form.cleaned_data['name']
             #name=str(name).strip()
             password=form.cleaned_data['password']
             #password=str(password).strip()
-
             user = authenticate(username=name,password=password)
-
             if user is not None:
                 data=User.objects.get(username=name)
                 name=data.username
@@ -206,7 +197,6 @@ def adduser(request):
                 error = "Either UserName Or Password is invalid Try Again"
                 return  render(request,'myapp/login.html',{'error':error})
         else :
-
             error = "Invalid Entries in Form,Please Make sure all entries are correct"
             return render(request,'myapp/login.html',{'error':error})
 
