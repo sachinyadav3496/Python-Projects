@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    {% load static %}
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href={%  static  'myapp/main.css' %}>
+    <title>HOME</title>
+</head>
+<body >
+{% include 'myapp/head.html' %}
+{% block header %}
+{% endblock %}
+
+<h1 >Welcome to First Template of Django</h1>
+<h2 >It is super Easy </h2>
+<center>
+<form method="post" action="#">
+    {{ form.as_p }}
+    <input type="submit" value="LOGIN">
+    <a href="/">LOGIN?</a>
+</form>
+</center>
+{% include 'myapp/foot.html' %}
+{% block footer %}
+{% endblock %}
+</body>
+</html>

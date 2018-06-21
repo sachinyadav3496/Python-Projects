@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    {% load static %}
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href={%  static  'myapp/main.css' %}>
+    <title>HELLO</title>
+</head>
+<body >
+{% include 'myapp/head.html' %}
+{% block header %}
+{% endblock %}
+<h1 >Welcome to HELLO PAGE OF DJANGO.</h1>
+    {% if name %}
+<h1>Welcome {{ name }} to Django </h1>
+{% endif %}
+<h2 >It is super Easy </h2>
+{% include 'myapp/foot.html' %}
+
+{% block footer %}
+
+{% endblock %}
+</body>
+</html>
