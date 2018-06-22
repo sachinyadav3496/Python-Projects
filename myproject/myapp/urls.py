@@ -5,4 +5,6 @@ urlpatterns = [
     path('hello/',views.hello,name='hello'),
     path('hello/<str:id>/',views.hello,name='hello'),
     path('signup/',views.Signup,name='signup'),
+    path('mklogin/',views.mklogin,name='mklogin'),
+    path('mksignup/',views.mksignup,name='mksignup'),
 ]

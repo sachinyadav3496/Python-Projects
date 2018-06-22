@@ -14,9 +14,10 @@
 <h1 >Welcome to First Template of Django</h1>
 <h2 >It is super Easy </h2>
 <center>
-<form method="post" action="#">
+<form method="post" action="/mksignup/">
+    {% csrf_token %}
     {{ form.as_p }}
-    <input type="submit" value="LOGIN">
+    <input type="submit" value="SIGNUP?">
     <a href="/">LOGIN?</a>
 </form>
 </center>
