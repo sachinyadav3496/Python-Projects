@@ -1,7 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http    import HttpResponse
 from .forms import login,signup
-# Create your views here.
+from .models import Users
 
 def index(request):
     form = login()
@@ -17,7 +17,20 @@ def mklogin(request):
     if form.is_valid():
         name = form.cleaned_data['Name']
         password = form.cleaned_data['Password']
-        return render(request,'myapp/mklogin.html',{'name':name,'password':password})
+        try :
+            user = Users.objects.get(Name=name)
+            if password == user.Password :
+                return render(request,'myapp/mklogin.html',{'name':name,'password':password})
+            else :
+                form = login()
+                error = "Invalid Password Try Again"
+                return render(request,'myapp/index.html',{'form':form,'error':error})
+
+        except Exception as e :
+            form = signup()
+            return render(request,'myapp/signup.html',{'form':form,'error':"No such user Exist \n Please Signup"})
+
+
     else :
         return HttpResponse("<h1>Form is not valid</h1>")
 def mksignup(request):

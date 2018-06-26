@@ -13,6 +13,11 @@
 
 <h1 >Welcome to First Template of Django</h1>
 <h2 >It is super Easy </h2>
+{% if error %}
+<h1 style="color: red">{{ error }}</h1>
+
+{% endif %}
+
 <center>
 <form method="post" action="/mklogin/">
     {% csrf_token %}
