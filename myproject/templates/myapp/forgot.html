@@ -23,13 +23,12 @@
 <p><b><i><a href="/logout/">LOGOUT?</a></i></b></p>
 {% else %}
 <center>
-<form method="post" action="/mklogin/">
+<form method="post" action="/change_password/">
     {% csrf_token %}
     {{ form.as_p }}
-    <input type="submit" value="LOGIN">
-    <a href="/signup/">SignUp?</a>
+    <input type="submit" value="RESET">
+
 </form>
-<a href="/forgot/" >Forget Password ?</a>
 </center>
 {% endif %}
 {% include 'myapp/foot.html' %}
