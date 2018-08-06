@@ -1,6 +1,5 @@
 from django.http import HttpResponse,HttpResponseRedirect
 from django.shortcuts import render
-
 from .forms import myData
 import pytesseract
 from PIL import  Image
@@ -13,10 +12,6 @@ from django.contrib.auth import authenticate
 from django.core.mail import send_mail
 from random import randint
 from django.conf import settings
-import urllib.parse
-import requests
-import json
-
 
 pytesseract.pytesseract.tesseract_cmd = 'C:/Program Files (x86)/Tesseract-OCR/tesseract'
 
@@ -29,7 +24,6 @@ def home(request):
          return render(request,'index.html',{'error':error})
 
 def index(request):
-
      if 'username' in request.session:
 
         return redirect('http://localhost/home')
@@ -58,34 +52,6 @@ def extract(request):
                 result = pytesseract.image_to_string(Image.open("static/new.png"),lang='eng')
             elif form.cleaned_data['hindi'] :
                 result = pytesseract.image_to_string(Image.open("static/new.png"),lang='hin')
-
-            main_api = 'http://maps.googleapis.com/maps/api/geocode/json?'
-            address = result
-            url = main_api + urllib.parse.urlencode({'address':address})
-            json_data = requests.get(url).json()
-            try :
-                addr = json_data["results"][0]["formatted_address"]
-                try :
-
-                    ln = json_data["results"][0]["geometry"]["bounds"]["northeast"]["lng"]
-                    lt  = json_data["results"][0]["geometry"]["bounds"]["northeast"]["lat"]
-                    result += '\n\n\nAddress = %s\nLongitude = %s \n Latitude = %s '%(addr,ln,lt)
-                except :
-                    try :
-                        address = addr.split()[-1]
-                        url = main_api + urllib.parse.urlencode({'address':address})
-                        json_data = requests.get(url).json()
-
-                        ln = json_data["results"][0]["geometry"]["bounds"]["northeast"]["lng"]
-                        lt  = json_data["results"][0]["geometry"]["bounds"]["northeast"]["lat"]
-                        result = result+'\n\n\nAddress = %s\nLongitude = %s \n Latitude = %s '%(addr,ln,lt)
-                    except :
-                        result = result+'\n\nAddress = %s'%(addr)
-            except:
-                result = result+'\n\nNo Location Found'
-
-
-
             f = open('static/result.txt','wb')
             f.write(result.encode('utf-8'))
             f.close()
@@ -99,25 +65,15 @@ def success(request):
     return HttpResponse('success')
 
 
-
-
-
-
 def signup(request):
-
     if request.method == 'POST':
-
-
         form = signup_form(request.POST)
-
         if form.is_valid():
             Name = form.cleaned_data['username']
             FName=form.cleaned_data['first_name']
             LName=form.cleaned_data['last_name']
             Email=form.cleaned_data['email']
             Password=form.cleaned_data['password']
-
-
 
             try:
                     Name = User.objects.get(username=Name)
@@ -201,7 +157,7 @@ def reset_password(request):
 
             otp = ''.join(otp)
 
-            message = "Hey Check this out \nYour OTP for reset password is %s "%(otp)
+            message = "Hey Check this out \nYour OTP for reset password is %s ."%(otp)
 
             subject = "Reset Password"
             from_email = "3496.grras@gmail.com"

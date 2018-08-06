@@ -15,4 +15,7 @@ def handle_uploaded_file(f):
     img = cv2.erode(img, kernel, iterations=1)
     cv2.imwrite("C:\\Users\\sachin yadav\\Desktop\\TextExtractor\\static\\removed_noise.png", img)
     cv2.imwrite("C:\\Users\\sachin yadav\\Desktop\\TextExtractor\\static\\new.png", img)
-
+    result = pytesseract.image_to_string(Image.open("static/new.png"),lang='eng')
+    f = open('static/result.txt','w')
+    f.write(result)
+    f.close()
