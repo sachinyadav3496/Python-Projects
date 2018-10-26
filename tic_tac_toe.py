@@ -1,10 +1,14 @@
+<<<<<<< HEAD
 from itertools import permutations
 import sys
+=======
+>>>>>>> 39622814ad26317f510a9c6d592c285405291b11
 import random
 import os
 import time
 
 
+<<<<<<< HEAD
 def win(data):
     win_comb = [ (1,2,3), (1,4,7), (1,5,9), (2,5,8), (3,6,9), (3,5,7),(4,5,6), (7,8,9) ]
     player_comb = list(permutations(sorted(data),3))
@@ -30,6 +34,24 @@ def print_board(msg):
 
     print("\t\t\t","-"*19)
     print("\n\n")
+=======
+
+
+def print_board(msg):
+    
+    clr_scr()
+    print(msg)
+    print("\n\nYour Current Board is : \n\n")
+    
+    for var in board :
+        print("\t\t\t\t\t","-"*19)
+        print("\t\t\t\t\t","|     |     |     |")
+        print("\t\t\t\t\t",f"|  {var[0]}  |  {var[1]}  |  {var[2]}  |")
+        print("\t\t\t\t\t","|     |     |     |")
+
+    print("\t\t\t\t\t","-"*19)
+    print("\n\n\n\n")
+>>>>>>> 39622814ad26317f510a9c6d592c285405291b11
 
 
 
@@ -39,6 +61,10 @@ def choice(player):
     possible_choices = [ '1','2','3','4','5','6','7','8','9' ]
     print("\n\nLeft Positions : ",*total_pos)
     ch = input(f"\n\n{player} pos : ")
+<<<<<<< HEAD
+=======
+    
+>>>>>>> 39622814ad26317f510a9c6d592c285405291b11
     if ch in possible_choices :
         ch = int(ch)
         if ch in covered_pos : 
@@ -56,6 +82,7 @@ def choice(player):
         return choice(player)
 
 def play_game(p_list):
+<<<<<<< HEAD
     c = 1
     ch1 = choice(p_list[1][0])
     p_list[1][2].append(ch1)
@@ -92,12 +119,27 @@ def play_game(p_list):
 
     else :
         print(f"\n\nwoooo...Match is Tie Between {p_list[0][0]} and {p_list[1][0]}\n\n")
+=======
+    
+    c = 1
+    while c <= 9 :
+        
+        ch1 = choice(p_list[0][0])
+        pos_ch1 = pos.get(ch1)
+        board[pos_ch1[0]][pos_ch1[1]] = p_list[0][1]
+        c = c + 1
+        print_board(f'\n\nAfter move {c} the board is ')
+>>>>>>> 39622814ad26317f510a9c6d592c285405291b11
 
 
 def clr_scr():
     
     os.system('cls')
+<<<<<<< HEAD
     print('\n\n\n')
+=======
+    print('\n\n\n\n')
+>>>>>>> 39622814ad26317f510a9c6d592c285405291b11
 
 if __name__ == "__main__" : 
     
@@ -126,7 +168,11 @@ if __name__ == "__main__" :
     print(f'\n\n{player1} symbol is - {symbol[0]}')
     print(f'\n\n{player2} symbol is - {symbol[1]}')
 
+<<<<<<< HEAD
     p_list = ( ( player1, symbol[0],[] ),( player2, symbol[1],[] ) )
+=======
+    p_list = ( ( player1, symbol[0] ),( player2, symbol[1] ) )
+>>>>>>> 39622814ad26317f510a9c6d592c285405291b11
    
     total_pos = [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
     covered_pos = [] 
@@ -136,3 +182,12 @@ if __name__ == "__main__" :
 
     play_game(p_list)
 
+<<<<<<< HEAD
+=======
+
+    
+
+    
+
+
+>>>>>>> 39622814ad26317f510a9c6d592c285405291b11
