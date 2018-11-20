@@ -1,0 +1,13 @@
+
+		
+Student Name : 			    sachin
+Total Questions Attempted : 5
+Total Correct Questions : 	0
+Total InCorrect Questions : 5
+Total Skipped Questions : 	0
+Total Marks : 				20
+Obtained Marks : 			-5
+Result Percentage : 		-25.00
+
+
+		
