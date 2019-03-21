@@ -1,0 +1,59 @@
+{% extends "template.html" %}
+
+<!-- All about title on your page -->
+{% block title %}
+<h1> GRRAS SOLUTIONS PRIVATE LIMITED </h1> <br/>
+{% endblock %}
+
+
+<!-- left side bar of the page -->
+
+{% block left %}
+{% endblock %}
+
+
+
+<!-- middle side bar of the page -->
+{% block middle %}
+<div style='padding: 10%;text-align: center;'>
+  
+<form class="form-signin" style="padding:0% 10% 10% 10%;" action='/startquiz/' method='post'>  
+        <h1 class="h3 mb-3 font-weight-normal" sytle=''>Please Fill in Your Details</h1>
+        <input type="text"   name="fname" id="inputPassword" class="form-control" placeholder="First Name" required>
+        <input type="text"   name="lname" id="inputPassword" class="form-control" placeholder="Last Name" required>
+        <input type="email"  name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+        <select type="email" name="course" id="inputEmail" class="form-control"  required autofocus>
+            <option value="" disabled selected>COURSE</option>
+            <optgroup label="PYTHON">
+              <option value='corepython'>CorePython</option>
+              <option value='advancepython'>AdvancePython</option>
+              <option value='webdevelopment'>WebDevelopment</option>
+              <option value='datascience'>DataScience</option>
+              <option value='machinelearning'>MachineLearning</option>       
+          </optgroup>
+          <optgroup label='LINUX'>
+                <option value="linux">CoreLinux</option>
+                <option value="rhcsa">RHCSA</option>
+                <option value="rhce">RHCE</option>
+                <option value="cloud">CLOUD</option>
+                <option value="devops">DEVOPS</option>
+          </optgroup>
+
+          
+        </select>
+        
+        <button class="btn btn-lg btn-primary btn-block" type="submit">START NOW!</button>
+      </form>
+      
+    </div>
+{% endblock %}
+
+<!-- right side bar of the page-->
+{% block right %}
+
+{% endblock %}
+
+<!-- footer side bar of the page-->
+{% block footer %}
+<h2> &copy; All Rights are reserved at Grras Solutions Pvt. Ltd, Jaipur</h2>
+{% endblock %}

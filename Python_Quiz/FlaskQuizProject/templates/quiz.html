@@ -1,0 +1,69 @@
+{% extends "template.html" %}
+
+
+{% block header %}
+
+<script type=text/javascript src="{{
+    url_for('static', filename='js/quiz.js') }}"></script>
+    <script type='text/javascript' src="{{ url_for('static',filename='js/timer.js') }}"></script>
+    <link rel='stylesheet' type='text/css' href='/static/css/styles.css'>
+        
+{% endblock %}
+<!-- All about title on your page -->
+{% block title %}
+<h1> GRRAS SOLUTIONS PRIVATE LIMITED </h1> 
+<p style="float:right;"> {{ name }}  <a href='/logout/' style='font-size: .2vm;letter-spacing: 0vm;'>LOGOUT </a></p><br/>
+<h1>Quiz on {{ course }}</h1>
+
+<!-- your content goes here -->
+
+{% endblock %}
+
+
+<!-- left side bar of the page -->
+
+{% block left %}
+<h2>All Questions</h2>
+
+<!-- your content goes here -->
+<div id='question_button'>
+
+</div>
+{% endblock %}
+
+<!-- middle side bar of the page -->
+{% block middle %}
+
+<div id='ask-question'>
+<br>
+    <h3 id="question"></h3>
+<br><br>
+    <div id="options"></div>
+    
+    </div>
+    
+{% endblock %}
+
+<!-- right side bar of the page-->
+{% block right %}
+
+<div id="timer">
+
+</div>
+<div id='correct-div'>
+    <p id='result'>Questions correct : <span id="correct">0 of 0</span></p>
+    <p>Total Questions <span id='total_ques'></span></p>
+</div>
+
+<!-- your content goes here -->
+
+{% endblock %}
+
+<!-- footer side bar of the page-->
+{% block footer %}
+
+<!-- your content goes here -->
+
+<h2> &copy; All Rights are reserved at Grras Solutions Pvt. Ltd, Jaipur</h2>
+
+{% endblock %}

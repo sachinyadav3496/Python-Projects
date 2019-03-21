@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+
+<head>
+        <title>Quiz</title>
+        <meta charset="utf-8">
+        <script type=text/javascript>
+            $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+          </script>
+        
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel='stylesheet' type='text/css' href='/static/css/main.css'>
+        <link rel='stylesheet' type='text/css' href='/static/css/bootstrap.css'>
+        <link rel="shortcut icon" href="/static/images/grras.gif" />
+        <script type=text/javascript src="{{
+            url_for('static', filename='js/jquery-3.3.1.js') }}"></script>
+        
+    {% block header %}
+    
+    {% endblock %}
+</head>
+
+<body>
+        <script src="/static/js/bootstrap.js"></script>
+
+    <div id='title_div'>
+        {% block title %}
+        
+        {% endblock %}
+    </div>
+    <div>
+
+    <div id='left_div'>
+        <hr />
+        {% block left %}
+        
+        {% endblock %}
+
+    </div>
+    <div id='middle_div'>
+        <hr />
+        {% block middle %}
+        
+        {% endblock %}
+    
+    </div>
+
+    <div id='right_div'>
+        <hr />
+        {% block right %}
+        
+        {% endblock %}
+    
+    </div>
+</div>
+    <div id='footer_div'>
+        {% block footer %}
+        
+        {% endblock %}
+    </div>
+
+   
+
+</body>
+</html>

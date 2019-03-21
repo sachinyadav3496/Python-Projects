@@ -1,0 +1,89 @@
+
+#title_div { 
+    text-align: center;
+    
+    /* background-color:#333333; */
+    width: 100%;
+    align-content: center;
+    /* position: relative; */
+    padding: 0%;
+    margin: 0%;
+}
+
+#title_div h1 { 
+    text-align: center; 
+    font-family: 'Lobster';
+    letter-spacing: .2vw;
+    font-size:2vw;
+ }
+
+ h1, button, input, select, p { 
+    text-align: center; 
+    font-family: 'Lobster'; letter-spacing: .2vw;
+    
+    color:#202020;
+    }
+    
+#ques h1, button, input, select { 
+        text-align: left;
+        font-family: 'Times New Roman', Times, serif; 
+        letter-spacing: .2vw;
+        color:#202020;
+        }
+ 
+    
+
+#footer_div  { 
+    color:#202020;
+    text-align: center;
+    /* background-color:#333333; */
+    
+    width: 100%;
+    margin: 0%;
+    /*
+    position: fixed;
+     top: 80%; */
+    clear: both;
+    }
+
+#middle_div { padding: 0%; 
+    margin: 0%; 
+    
+    /*position: fixed;  
+    
+    top: 20%; */
+    left:25%;
+    float: left;
+    /*text-align: center;*/
+    width: 50%;
+  /*  background: #353535; */
+  /* height:500px; */
+  overflow: hidden;
+    }
+
+#left_div { padding: 0px; 
+        margin: 0%; 
+      
+        float: left;
+        /*  position: fixed;
+         top: 20%; */
+        left: 0%;
+        /* height:500px; */
+        overflow: hidden;
+        width: 25%;
+       /* background:green; */
+}
+
+#right_div { padding: 0%; 
+    margin: 0%; 
+    /*position: fixed;
+    
+     top: 20%; */
+    right: 0%;
+    /* background: red; */
+    float: left;
+    width: 25%;
+}
+
+
+h1 { color:#202020; }
