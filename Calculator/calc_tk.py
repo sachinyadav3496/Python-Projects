@@ -86,7 +86,7 @@ root.wm_resizable(0,0) #will not be resizalbe hight or width of the window
 
 root.wm_title("BASIC CALCULATOR") #setting up title for the window
 
-img = PhotoImage(file="small.gif") #open image small.gif from current folder (place one gif image with name small.gif in current directory)
-root.wm_iconphoto(root,img) #set img as icon on window
+#img = PhotoImage(file="small.gif") #open image small.gif from current folder (place one gif image with name small.gif in current directory)
+#root.wm_iconphoto(root,img) #set img as icon on window
 root.bell()#rings a display's bell
 mainloop() #window starts from here
